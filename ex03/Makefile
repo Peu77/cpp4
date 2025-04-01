@@ -1,8 +1,15 @@
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++17
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+CFLAGS = -Wall -Wextra -Werror -std=c++17 -Imateria -Icharacter
+SRC = main.cpp \
+	 materia/AMateria.cpp \
+	 materia/Ice.cpp \
+	 materia/Cure.cpp \
+	 character/Character.cpp \
+	 character/ICharacter.cpp \
+	 materia/MateriaSource.cpp
+
 OBJ = $(SRC:.cpp=.o)
-NAME = ex01
+NAME = ex03
 
 all: $(NAME)
 
