@@ -15,13 +15,13 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
-	@echo "$(GREEN)$(NAME) compiled successfully!                               $(RESET)"
+	@echo "$(GREEN)$(NAME) compiled successfully!$(RESET)"
 
 %.o: %.cpp
 	@$(eval TOTAL := $(words $(SRC)))
 	@$(eval PROGRESS := $(shell echo $$(($(PROGRESS)+1))))
 	@$(eval PERCENT := $(shell echo $$(($(PROGRESS)*100/$(TOTAL)))))
-	@$(call progress_bar,$(PERCENT))
+	@bash circle_loader.sh $(PERCENT)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
