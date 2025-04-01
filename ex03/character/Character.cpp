@@ -13,7 +13,7 @@ Character::Character(std::string name) : name(std::move(name)) {
     }
 }
 
-Character::Character(Character const &other) : name(other.name) {
+Character::Character(Character const &other) : ICharacter(other), name(other.name){
     for (int i = 0; i < inventorySize; ++i) {
         if (other.inventory[i]) {
             inventory[i] = other.inventory[i]->clone();
