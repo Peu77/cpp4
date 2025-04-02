@@ -69,5 +69,10 @@ void Character::use(int idx, ICharacter &target) {
         std::cout << "Index " << idx << " is out of bounds" << std::endl;
         return;
     }
+
+    if (inventory[idx] == nullptr) {
+        std::cout << "No materia equipped at index " << idx << std::endl;
+        return;
+    }
     inventory[idx]->use(target);
 }
