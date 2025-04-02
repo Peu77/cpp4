@@ -5,7 +5,6 @@ SRC = main.cpp \
 	 materia/Ice.cpp \
 	 materia/Cure.cpp \
 	 character/Character.cpp \
-	 character/ICharacter.cpp \
 	 materia/MateriaSource.cpp
 
 OBJ = $(SRC:.cpp=.o)

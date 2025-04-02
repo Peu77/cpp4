@@ -11,9 +11,10 @@ MateriaSource::MateriaSource() {
 
 MateriaSource::MateriaSource(const MateriaSource &src) {
     for (int i = 0; i < inventorySize; i++) {
-        if (materia[i] != nullptr)
-            delete materia[i];
-        materia[i] = src.materia[i]->clone();
+        if (src.materia[i] != nullptr)
+            materia[i] = src.materia[i]->clone();
+        else
+            materia[i] = nullptr;
     }
 }
 
@@ -29,7 +30,10 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &src) {
         for (int i = 0; i < inventorySize; i++) {
             if (materia[i] != nullptr)
                 delete materia[i];
-            materia[i] = src.materia[i]->clone();
+            if (src.materia[i] != nullptr)
+                materia[i] = src.materia[i]->clone();
+            else
+                materia[i] = nullptr;
         }
     }
     return *this;
